@@ -36,9 +36,21 @@ export function Home() {
   }
 
   function handleRemoveTask(id: number) {
-    const updatedTask = tasks.filter(task => task.id !== id);
+    Alert.alert('Remover item', 'Tem certeza que você deseja remover esse item?', [
+      {
+        style: 'cancel',
+        text: 'Não',
+      },
+      {
+        style: 'destructive',
+        text: 'Sim',
+        onPress: () => {
+          const updatedTask = tasks.filter(task => task.id !== id);
 
-    setTasks(updatedTask);
+          setTasks(updatedTask);
+        }
+      }
+    ]);
   }
 
   return (
